@@ -36,6 +36,10 @@ const escapeXml = (value) => String(value).replace(/[<>&'"]/g, (character) => ({
 
 // Keep the original SVG as the visual template; only data tokens are replaced.
 let svg = fs.readFileSync(templatePath, 'utf8');
+svg = svg
+  .replace(/\.cont-top-p0-0 \{ fill: #313c45; \}/g, '.cont-top-p0-0 { fill: #5f7788; }')
+  .replace(/\.cont-left-p0-0 \{ fill: #4f6271; \}/g, '.cont-left-p0-0 { fill: #7893a3; }')
+  .replace(/\.cont-right-p0-0 \{ fill: #4f6271; \}/g, '.cont-right-p0-0 { fill: #7893a3; }');
 const cellPattern = /(<g transform="translate\([0-9.]+ [0-9.]+\)">.*?<\/g>)/gs;
 const cells = [...svg.matchAll(cellPattern)];
 if (!cells.length) throw new Error('No contribution cells found in the template');
