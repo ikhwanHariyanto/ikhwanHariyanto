@@ -18,18 +18,20 @@ jobs:
       - name: Checkout profile repository
         uses: actions/checkout@v4
 
-      - name: Generate contribution graphic
-        uses: yoshi389111/github-profile-3d-contrib@latest
+      - name: Generate Gundam contribution graphic
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Build profile-gitclock.svg
+        shell: bash
+        run: node scripts/generate-profile-gitclock.mjs
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USERNAME: ikhwanHariyanto
 
-      - name: Update contributor SVG
-        shell: bash
-        run: cp profile-3d-contrib/profile-gitblock.svg profile/contributor-animate.svg
-
       - name: Commit updated graphic
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore: update GitHub contribution graphic"
-          file_pattern: profile/contributor-animate.svg
+          commit_message: "chore: update Gundam contribution clock"
+          file_pattern: profile/profile-gitclock.svg
