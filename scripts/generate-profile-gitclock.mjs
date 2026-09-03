@@ -40,7 +40,9 @@ const cellPattern = /(<g transform="translate\([0-9.]+ [0-9.]+\)">.*?<\/g>)/gs;
 const cells = [...svg.matchAll(cellPattern)];
 if (!cells.length) throw new Error('No contribution cells found in the template');
 const templateDays = days.slice(0, cells.length);
-svg = svg.replace(cellPattern, (cell, index) => {
+let cellIndex = 0;
+svg = svg.replace(cellPattern, (cell) => {
+  const index = cellIndex++;
   if (index >= templateDays.length) return cell;
   const day = templateDays[index];
   const level = levelFor(day);
