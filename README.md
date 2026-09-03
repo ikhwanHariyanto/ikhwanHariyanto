@@ -4,7 +4,7 @@
 
 # I Love Cafein but To much For today
 
-![Typing SVG](https://readme-typing-svg.demolab.com/?font=Fira+Code&size=18&pause=1000&color=00F0FF&center=true&vCenter=true&width=500&lines=Informatics+Student+%40+Unmul;Gunpla+Enthusiast+%26+Builder;Front+End+Web+Developer;UI%2FUX+Enthusiast+%26+Developer)
+![Typing SVG](https://readme-typing-svg.demolab.com/?font=Fira+Code&size=18&pause=1000&color=778CA4&center=true&vCenter=true&width=500&lines=Informatics+Student+%40+Unmul;Gunpla+Enthusiast+%26+Builder;Front+End+Web+Developer;UI%2FUX+Enthusiast+%26+Developer)
 
 </div>
 
