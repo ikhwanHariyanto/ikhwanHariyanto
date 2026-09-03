@@ -8,7 +8,6 @@
 
 </div>
 
----
 
 ## `// ABOUT`
 
@@ -19,7 +18,6 @@
 > Learning in public: I turn coursework into portfolio projects here
 ```
 
----
 
 ## `// CURRENT_BUILD`
 
@@ -30,7 +28,6 @@
 > Object-oriented and desktop UI projects in Java & Visual Basic .NET
 ```
 
----
 
 ## `// STACK`
 
@@ -38,21 +35,18 @@
 
 </div>
 
----
 
 ## `// OFFLINE`
 
 Gunpla builder :: Kamen Rider collector :: currently sinking hours into Genshin Impact, NFS Heat, and Far Cry 4.
 
----
 
 ## `// STATS`
 
 <div align="center">
-  <img src="https://github.com/ikhwanHariyanto/ngetes/blob/main/profile/profile-gitclock.svg" alt="GitHub stats" width="100%" />
+  <img src="https://github.com/ikhwanHariyanto/ngetes/blob/main/profile/contributor-animate.svg" alt="GitHub stats" width="100%" />
 </div>
 
----
 
 ## `// CONNECT`
 
