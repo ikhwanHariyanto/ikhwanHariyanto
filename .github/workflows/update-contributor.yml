@@ -25,10 +25,10 @@ jobs:
 
       - name: Update contributor SVG
         shell: bash
-        run: cp profile-3d-contrib/profile-gitblock.svg contributor-animate.svg
+        run: cp profile-3d-contrib/profile-gitblock.svg profile/contributor-animate.svg
 
       - name: Commit updated graphic
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore: update GitHub contribution graphic"
-          file_pattern: contributor-animate.svg
+          file_pattern: profile/contributor-animate.svg
