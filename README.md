@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="[./assets/banner.svg](https://github.com/ikhwanHariyanto/ngetes/blob/main/profile/apa.svg)" alt="Ikhwan banner" width="100%" />
+<img src="https://github.com/ikhwanHariyanto/ngetes/blob/main/profile/apa.svg" alt="Ikhwan banner" width="100%" />
 
 # I Love Cafein but To much For today
 
