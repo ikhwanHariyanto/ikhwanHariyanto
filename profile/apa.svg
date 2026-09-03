@@ -2,7 +2,7 @@
   <defs>
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&amp;display=swap');
-      .display { font-family: 'Chakra Petch', sans-serif; }
+      .display { font-family: 'Arial', sans-serif; }
       .mono { font-family: 'Chakra Petch', sans-serif; }
       .eyebrow { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
       .reveal { animation: lift 0.55s ease-out both; }
