@@ -49,8 +49,7 @@ Gunpla builder :: Kamen Rider collector :: currently sinking hours into Genshin 
 ## `// STATS`
 
 <div align="center">
-  <img src="https://github.com/ikhwanHariyanto/ngetes/blob/main/profile/contributor-animate.svg" alt="GitHub stats" height="165" />
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=GANTI_USERNAME&theme=github-dark-blue&hide_border=true" alt="GitHub streak" height="165" />
+  <img src="https://github.com/ikhwanHariyanto/ngetes/blob/main/profile/contributor-animate.svg" alt="GitHub stats" width="100%" />
 </div>
 
 ---
