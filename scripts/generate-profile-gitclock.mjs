@@ -18,7 +18,7 @@ const query = `query ($username: String!, $from: DateTime!, $to: DateTime!) {
     }
     contributionsCollection(from: $from, to: $to) {
       contributionCalendar { totalContributions weeks { contributionDays { contributionCount contributionLevel date } } }
-      totalCommitContributions totalIssueContributions totalPullRequestContributions totalPullRequestReviewContributions
+      totalCommitContributions totalIssueContributions totalPullRequestContributions totalPullRequestReviewContributions totalRepositoryContributions
     }
   }
 }`;
@@ -57,7 +57,19 @@ svg = svg.replace(cellPattern, (cell) => {
   if (index >= templateDays.length) return cell;
   const day = templateDays[index];
   const level = levelFor(day);
-  return cell.replace(/(cont-(?:top|left|right)-p\d+-)\d+/g, `$1${level}`)
+  const outer = cell.match(/^<g transform="translate\(([0-9.]+) ([0-9.]+)\)">/);
+  const side = cell.match(/<rect[^>]+height="([0-9.]+)"[^>]+class="cont-left-/);
+  const scale = Math.sqrt(18 ** 2 + 10.39 ** 2) / 18;
+  const contributionHeight = Math.log10(day.contributionCount / 20 + 1) * 144 + 3;
+  const baseline = outer && side ? Number(outer[2]) + Number(side[1]) * scale : null;
+  const nextY = baseline === null ? null : baseline - contributionHeight;
+  return cell
+    .replace(/(cont-(?:top|left|right)-p\d+-)\d+/g, `$1${level}`)
+    .replace(/^<g transform="translate\(([0-9.]+) ([0-9.]+)\)">/, nextY === null ? '$&' : `<g transform="translate($1 ${nextY.toFixed(2)})">`)
+    .replace(/(<rect[^>]+height=")[0-9.]+("[^>]+class="cont-left-)/, `$1${(contributionHeight / scale).toFixed(2)}$2`)
+    .replace(/(<rect[^>]+height=")[0-9.]+("[^>]+class="cont-right-)/, `$1${(contributionHeight / scale).toFixed(2)}$2`)
+    .replace(/values="[0-9.]+;[0-9.]+"/g, `values="2.6;${(contributionHeight / scale).toFixed(2)}"`)
+    .replace(/values="[0-9.]+ [0-9.]+;[0-9.]+ [0-9.]+"/, outer && nextY !== null ? `values="${outer[1]} ${baseline.toFixed(2)};${outer[1]} ${nextY.toFixed(2)}"` : '$&')
     .replace(/<title>[^<]*<\/title>/g, `<title>${escapeXml(day.date)}: ${day.contributionCount} contributions</title>`);
 });
 
@@ -72,6 +84,24 @@ if (donutStart >= 0 && donutEnd > donutStart) {
     .replace('fill: #4f6271;', 'fill: #8aa9b4;');
   svg = `${svg.slice(0, donutStart)}${brighterDonut}${svg.slice(donutEnd)}`;
 }
+
+const radarValues = [
+  collection.totalCommitContributions,
+  collection.totalIssueContributions,
+  collection.totalPullRequestContributions,
+  collection.totalPullRequestReviewContributions,
+  collection.totalRepositoryContributions,
+];
+const radarPoints = radarValues.map((value, index) => {
+  const radius = Math.min(156, Math.log10(value + 1) / 4 * 156);
+  const angle = (-90 + index * 72) * (Math.PI / 180);
+  return `${(Math.cos(angle) * radius).toFixed(2)},${(Math.sin(angle) * radius).toFixed(2)}`;
+}).join(' ');
+svg = svg.replace(/(<polygon class="radar" points=")[^"]+/, `$1${radarPoints}`);
+const radarLabels = ['Commit', 'Issue', 'PullReq', 'Review', 'Repo'];
+radarLabels.forEach((label, index) => {
+  svg = svg.replace(new RegExp(`>${label}<title>\\d+</title>`), `>${label}<title>${radarValues[index]}</title>`);
+});
 
 const replaceTextAt = (x, value, title = null) => {
   const pattern = new RegExp(`(<text[^>]*x="${x}"[^>]*>).*?(<\\/text>)`);
