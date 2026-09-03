@@ -50,6 +50,18 @@ svg = svg.replace(cellPattern, (cell) => {
     .replace(/<title>[^<]*<\/title>/g, `<title>${escapeXml(day.date)}: ${day.contributionCount} contributions</title>`);
 });
 
+const donutStart = svg.indexOf('<g transform="translate(40, 504)">');
+const donutEnd = svg.indexOf('</g></g><g><text', donutStart);
+if (donutStart >= 0 && donutEnd > donutStart) {
+  const donut = svg.slice(donutStart, donutEnd);
+  const brighterDonut = donut
+    .replace('fill="#4f6271"', 'fill="#65b8ad"')
+    .replace('fill="#4f6271"', 'fill="#8aa9b4"')
+    .replace('fill: #4f6271;', 'fill: #65b8ad;')
+    .replace('fill: #4f6271;', 'fill: #8aa9b4;');
+  svg = `${svg.slice(0, donutStart)}${brighterDonut}${svg.slice(donutEnd)}`;
+}
+
 const replaceTextAt = (x, value, title = null) => {
   const pattern = new RegExp(`(<text[^>]*x="${x}"[^>]*>).*?(<\\/text>)`);
   svg = svg.replace(pattern, `$1${value}${title === null ? '' : `<title>${title}</title>`}$2`);
