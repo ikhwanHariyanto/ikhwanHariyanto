@@ -22,9 +22,7 @@
 ## `// CURRENT_BUILD`
 
 ```
-> IoT automatic plant watering system (ESP32)
-  developing it as a candidate for a Sinta 2 journal publication
-
+> IoT automatic plant watering system (ESP32) Developing
 > Object-oriented and desktop UI projects in Java & Visual Basic .NET
 ```
 
@@ -51,9 +49,11 @@
 
 
 ## `// OFFLINE`
-
-Gunpla builder :: Kamen Rider collector :: currently sinking hours into Genshin Impact, NFS Heat, and Far Cry 4.
-
+```
+> Gundam Builder
+> Photographer
+> Toys collector
+```
 
 ## `// STATS`
 
@@ -63,11 +63,14 @@ Gunpla builder :: Kamen Rider collector :: currently sinking hours into Genshin 
 
 
 ## `// CONNECT`
-
 <div align="center">
-  <!-- Ganti link di bawah dengan akun kamu -->
-</div>
 
+[![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/ikh_hariyanto?igsi=NnBlN3N1dHZiYTQw&utm_source=qr)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ikhwan-hariyanto-a8463a337/)
+[![Gmail](https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:ikhwanhariyanto01@gmail.com)
+[![Discord](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/users/516231157759606795)
+
+</div>
 <div align="center">
   <sub>SYSTEM_STATUS :: ONLINE</sub>
 </div>
