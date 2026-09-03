@@ -31,7 +31,7 @@ if (payload.errors?.length || !payload.data?.user) throw new Error(payload.error
 const collection = payload.data.user.contributionsCollection;
 const calendar = collection.contributionCalendar;
 const days = calendar.weeks.flatMap((week) => week.contributionDays);
-const levelFor = (day) => ({ NONE: 0, FIRST_QUARTILE: 1, SECOND_QUARTILE: 2, THIRD_QUARTILE: 3, FOURTH_QUARTILE: 4 }[day.contributionLevel] ?? 0);
+const levelFor = (day) => ({ NONE: 0, FIRST_QUARTILE: 1, SECOND_QUARTILE: 2, THIRD_QUARTILE: 3, FOURTH_QUARTILE: 4 }[day?.contributionLevel] ?? 0);
 const escapeXml = (value) => String(value).replace(/[<>&'"]/g, (character) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;', "'": '&apos;', '"': '&quot;' }[character]));
 
 // Keep the original SVG as the visual template; only data tokens are replaced.
@@ -45,6 +45,7 @@ svg = svg.replace(cellPattern, (cell) => {
   const index = cellIndex++;
   if (index >= templateDays.length) return cell;
   const day = templateDays[index];
+  if (!day) return cell;
   const level = levelFor(day);
   return cell.replace(/(cont-(?:top|left|right)-p\d+-)\d+/g, `$1${level}`)
     .replace(/<title>[^<]*<\/title>/g, `<title>${escapeXml(day.date)}: ${day.contributionCount} contributions</title>`);
