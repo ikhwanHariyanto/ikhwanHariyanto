@@ -1,43 +1,66 @@
 <div align="center">
-  <img src="./assets/banner.svg" alt="Ikhwan banner" width="100%" />
 
-# Hi there, I'm Ikhwan 👋
+<img src="./assets/banner.svg" alt="Ikhwan banner" width="100%" />
 
-Informatics student turning coursework into working software.
+# I K H W A N
+
+![Typing SVG](https://readme-typing-svg.demolab.com/?font=Fira+Code&size=18&pause=1000&color=00F0FF&center=true&vCenter=true&width=500&lines=Informatics+student;Building+OOP+%2B+IoT+systems;Turning+coursework+into+working+software)
 
 </div>
 
-## 🎓 About Me
+---
 
-- 🖥️ S1 Informatika student at Universitas Mulawarman, Samarinda, batch 2024
-- 🧩 Working across OOP (Java, VB.NET), databases, and Linux system administration
-- 🌐 Currently digging into distributed systems concepts
-- 🧠 Learning in public: I turn coursework into portfolio projects here
+## `// ABOUT`
 
-## 🔭 Currently Working On
+```
+> S1 Informatika student, Universitas Mulawarman, Samarinda, batch 2024
+> Working across OOP (Java, VB.NET), databases, and Linux system administration
+> Currently digging into distributed systems concepts
+> Learning in public: I turn coursework into portfolio projects here
+```
 
-- 🌱 IoT automatic plant watering system (ESP32), developing it as a candidate for a Sinta 2 journal publication
-- 📚 Object-oriented and desktop UI projects in Java & Visual Basic .NET
+---
 
-## 🛠️ Tech Stack
+## `// CURRENT_BUILD`
+
+```
+> IoT automatic plant watering system (ESP32)
+  developing it as a candidate for a Sinta 2 journal publication
+
+> Object-oriented and desktop UI projects in Java & Visual Basic .NET
+```
+
+---
+
+## `// STACK`
 
 <div align="center">
 
 </div>
 
-## 🎮 Beyond the Code
+---
 
-Gunpla builder · Kamen Rider collector · currently sinking hours into Genshin Impact, NFS Heat, and Far Cry 4.
+## `// OFFLINE`
 
-## 📊 GitHub Stats
+Gunpla builder :: Kamen Rider collector :: currently sinking hours into Genshin Impact, NFS Heat, and Far Cry 4.
+
+---
+
+## `// STATS`
 
 <div align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=GANTI_USERNAME&show_icons=true&theme=github_dark&hide_border=true" alt="GitHub stats" height="165" />
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=GANTI_USERNAME&theme=github-dark-blue&hide_border=true" alt="GitHub streak" height="165" />
 </div>
 
-## 📫 Connect
+---
+
+## `// CONNECT`
 
 <div align="center">
   <!-- Ganti link di bawah dengan akun kamu -->
+</div>
+
+<div align="center">
+  <sub>SYSTEM_STATUS :: ONLINE</sub>
 </div>
