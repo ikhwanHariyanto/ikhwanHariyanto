@@ -30,6 +30,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USERNAME: ikhwanHariyanto
 
+      - name: Use uncached raw SVG in README
+        shell: bash
+        run: sed -i 's#https://github.com/ikhwanHariyanto/ngetes/blob/main/profile/contributor-animate.svg#https://raw.githubusercontent.com/ikhwanHariyanto/ngetes/main/profile/contributor-animate.svg#g' README.md
+
       - name: Commit updated graphic
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
