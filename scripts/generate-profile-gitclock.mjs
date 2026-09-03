@@ -38,10 +38,11 @@ const escapeXml = (value) => String(value).replace(/[<>&'"]/g, (character) => ({
 let svg = fs.readFileSync(templatePath, 'utf8');
 const cellPattern = /(<g transform="translate\([0-9.]+ [0-9.]+\)">.*?<\/g>)/gs;
 const cells = [...svg.matchAll(cellPattern)];
-if (cells.length < days.length) throw new Error(`Template has ${cells.length} cells, expected ${days.length}`);
+if (!cells.length) throw new Error('No contribution cells found in the template');
+const templateDays = days.slice(0, cells.length);
 svg = svg.replace(cellPattern, (cell, index) => {
-  if (index >= days.length) return cell;
-  const day = days[index];
+  if (index >= templateDays.length) return cell;
+  const day = templateDays[index];
   const level = levelFor(day);
   return cell.replace(/(cont-(?:top|left|right)-p\d+-)\d+/g, `$1${level}`)
     .replace(/<title>[^<]*<\/title>/g, `<title>${escapeXml(day.date)}: ${day.contributionCount} contributions</title>`);
