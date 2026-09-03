@@ -10,8 +10,12 @@ if (!token) throw new Error('GITHUB_TOKEN is required');
 const endDate = new Date();
 const startDate = new Date(endDate);
 startDate.setDate(startDate.getDate() - 364);
+startDate.setDate(startDate.getDate() - startDate.getDay());
 const query = `query ($username: String!, $from: DateTime!, $to: DateTime!) {
   user(login: $username) {
+    repositories(first: 100, ownerAffiliations: OWNER, isFork: false) {
+      nodes { stargazerCount forkCount }
+    }
     contributionsCollection(from: $from, to: $to) {
       contributionCalendar { totalContributions weeks { contributionDays { contributionCount contributionLevel date } } }
       totalCommitContributions totalIssueContributions totalPullRequestContributions totalPullRequestReviewContributions
@@ -29,6 +33,9 @@ const payload = await response.json();
 if (payload.errors?.length || !payload.data?.user) throw new Error(payload.errors?.map((error) => error.message).join('; ') || `User ${username} not found`);
 
 const collection = payload.data.user.contributionsCollection;
+const repositories = payload.data.user.repositories.nodes;
+const totalStars = repositories.reduce((total, repository) => total + repository.stargazerCount, 0);
+const totalForks = repositories.reduce((total, repository) => total + repository.forkCount, 0);
 const calendar = collection.contributionCalendar;
 const days = calendar.weeks.flatMap((week) => week.contributionDays);
 const levelFor = (day) => ({ NONE: 0, FIRST_QUARTILE: 1, SECOND_QUARTILE: 2, THIRD_QUARTILE: 3, FOURTH_QUARTILE: 4 }[day.contributionLevel] ?? 0);
@@ -71,8 +78,8 @@ const replaceTextAt = (x, value, title = null) => {
   svg = svg.replace(pattern, `$1${value}${title === null ? '' : `<title>${title}</title>`}$2`);
 };
 replaceTextAt('384', calendar.totalContributions);
-replaceTextAt('650', collection.totalCommitContributions, collection.totalCommitContributions);
-replaceTextAt('772', collection.totalPullRequestContributions, collection.totalPullRequestContributions);
+replaceTextAt('650', totalStars, totalStars);
+replaceTextAt('772', totalForks, totalForks);
 svg = svg.replace(/202[0-9]-[0-9]{2}-[0-9]{2} \/ 202[0-9]-[0-9]{2}-[0-9]{2}/, `${startDate.toISOString().slice(0, 10)} / ${endDate.toISOString().slice(0, 10)}`);
 
 fs.mkdirSync(outputPath.split('/').slice(0, -1).join('/') || '.', { recursive: true });
