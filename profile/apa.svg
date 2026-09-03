@@ -1,0 +1,92 @@
+<svg width="900" height="280" viewBox="0 0 900 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&amp;display=swap');
+      .display { font-family: 'Arial', sans-serif; }
+      .mono { font-family: 'Chakra Petch', sans-serif; }
+      .eyebrow { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
+      .reveal { animation: lift 0.55s ease-out both; }
+      .delay-1 { animation-delay: 0.08s; }
+      .delay-2 { animation-delay: 0.16s; }
+      .delay-3 { animation-delay: 0.24s; }
+      .delay-4 { animation-delay: 0.32s; }
+      @keyframes lift {
+        from { opacity: 0; transform: translateY(8px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .pulse { animation: pulse 2.4s ease-in-out infinite; transform-origin: center; }
+      @keyframes pulse {
+        0%, 100% { opacity: 0.45; }
+        50% { opacity: 1; }
+      }
+    </style>
+    <linearGradient id="surface" x1="0" y1="0" x2="900" y2="280" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#313C45"/>
+      <stop offset="1" stop-color="#4F6271"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#778CA4" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#313C45" stop-opacity="0.18"/>
+    </linearGradient>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M30 0H0V30" stroke="#D5DBE2" stroke-opacity="0.07"/>
+    </pattern>
+    <filter id="soft-shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#1D252C" flood-opacity="0.32"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="280" rx="8" fill="url(#surface)"/>
+  <rect width="900" height="280" rx="8" fill="url(#grid)"/>
+  <path d="M0 218C180 182 282 258 440 214C600 170 720 178 900 204V280H0V218Z" fill="#313C45" fill-opacity="0.28"/>
+
+  <g filter="url(#soft-shadow)">
+    <rect x="24" y="24" width="322" height="232" rx="4" fill="#313C45" fill-opacity="0.83" stroke="#B3BFCB" stroke-opacity="0.22"/>
+    <rect x="372" y="24" width="504" height="232" rx="4" fill="url(#panel)" stroke="#D5DBE2" stroke-opacity="0.22"/>
+  </g>
+
+  <g class="reveal">
+    <circle cx="56" cy="57" r="12" fill="#D5DBE2" fill-opacity="0.12" stroke="#B3BFCB" stroke-opacity="0.65"/>
+    <path d="M51 57H61M56 52V62" stroke="#D5DBE2" stroke-width="1.5"/>
+    <text x="80" y="61" class="mono eyebrow" fill="#B3BFCB">PERSONAL PROFILE / PILOT-01</text>
+  </g>
+
+  <g class="reveal delay-1">
+    <text x="48" y="112" class="display" font-size="31" font-weight="700" fill="#D5DBE2">YuneeToMuch</text>
+    <text x="48" y="143" class="display" font-size="31" font-weight="700" fill="#D5DBE2">Cafein</text>
+    <rect x="48" y="161" width="54" height="3" rx="1.5" fill="#B3BFCB"/>
+    <text x="48" y="190" class="display" font-size="13" font-weight="500" fill="#B3BFCB">UI/UX Designer</text>
+    <text x="48" y="210" class="display" font-size="13" font-weight="500" fill="#B3BFCB">&amp; Front-End Developer</text>
+  </g>
+
+  <g class="reveal delay-2">
+    <circle cx="53" cy="234" r="4" fill="#D5DBE2" class="pulse"/>
+    <text x="66" y="238" class="mono" font-size="10" fill="#D5DBE2">STUDENT / LEARNING IN PUBLIC</text>
+  </g>
+
+  <g class="reveal delay-1">
+    <text x="400" y="58" class="mono eyebrow" fill="#B3BFCB">CURRENT SIGNAL</text>
+    <line x1="400" y1="73" x2="848" y2="73" stroke="#B3BFCB" stroke-opacity="0.28"/>
+    <circle cx="828" cy="55" r="5" fill="#D5DBE2" class="pulse"/>
+    <text x="400" y="110" class="display" font-size="20" font-weight="600" fill="#D5DBE2">Designing with curiosity.</text>
+    <text x="400" y="139" class="display" font-size="15" fill="#B3BFCB">Learning the flow between pixels</text>
+    <text x="400" y="161" class="display" font-size="15" fill="#B3BFCB">and code, one project at a time.</text>
+  </g>
+
+  <g class="reveal delay-2">
+    <text x="400" y="194" class="mono eyebrow" fill="#B3BFCB">BASED IN</text>
+    <text x="400" y="216" class="display" font-size="14" font-weight="600" fill="#D5DBE2">Samarinda, East Kalimantan</text>
+    <text x="400" y="243" class="mono eyebrow" fill="#B3BFCB">MOTTO</text>
+    <text x="462" y="243" class="display" font-size="13" font-weight="500" fill="#D5DBE2">Just following the flow.</text>
+  </g>
+
+  <g class="reveal delay-3">
+    <rect x="696" y="185" width="44" height="25" rx="2" fill="#D5DBE2" fill-opacity="0.12" stroke="#B3BFCB" stroke-opacity="0.35"/>
+    <text x="708" y="202" class="mono" font-size="10" fill="#D5DBE2">JS</text>
+    <rect x="748" y="185" width="52" height="25" rx="2" fill="#D5DBE2" fill-opacity="0.12" stroke="#B3BFCB" stroke-opacity="0.35"/>
+    <text x="760" y="202" class="mono" font-size="10" fill="#D5DBE2">REACT</text>
+    <rect x="808" y="185" width="40" height="25" rx="2" fill="#D5DBE2" fill-opacity="0.12" stroke="#B3BFCB" stroke-opacity="0.35"/>
+    <text x="819" y="202" class="mono" font-size="10" fill="#D5DBE2">CSS</text>
+    <text x="696" y="231" class="mono" font-size="9" fill="#B3BFCB">FIGMA / CANVA / LIGHTROOM =</text>
+  </g>
+</svg>
