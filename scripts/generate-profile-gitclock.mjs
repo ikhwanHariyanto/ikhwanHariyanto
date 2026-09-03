@@ -40,9 +40,10 @@ const cellPattern = /(<g transform="translate\([0-9.]+ [0-9.]+\)">.*?<\/g>)/gs;
 const cells = [...svg.matchAll(cellPattern)];
 if (!cells.length) throw new Error('No contribution cells found in the template');
 const templateDays = days.slice(0, cells.length);
-svg = svg.replace(cellPattern, (cell, index) => {
-  if (index >= templateDays.length) return cell;
-  const day = templateDays[index];
+let cellIndex = 0;
+svg = svg.replace(cellPattern, (cell) => {
+  const day = templateDays[cellIndex++];
+  if (!day) return cell;
   const level = levelFor(day);
   return cell.replace(/(cont-(?:top|left|right)-p\d+-)\d+/g, `$1${level}`)
     .replace(/<title>[^<]*<\/title>/g, `<title>${escapeXml(day.date)}: ${day.contributionCount} contributions</title>`);
