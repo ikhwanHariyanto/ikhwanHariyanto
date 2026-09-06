@@ -6,10 +6,11 @@
       .mono { font-family: 'Chakra Petch', sans-serif; }
       .eyebrow { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; }
       .reveal { animation: lift 0.55s ease-out both; }
-      .delay-1 { animation-delay: 0.08s; }
+      .delay-1 { animation-delay: 0.5s; }
       .delay-2 { animation-delay: 0.16s; }
       .delay-3 { animation-delay: 0.24s; }
       .delay-4 { animation-delay: 0.32s; }
+
       @keyframes lift {
         from { opacity: 0; transform: translateY(8px); }
         to { opacity: 1; transform: translateY(0); }
@@ -67,7 +68,9 @@
   <g class="reveal delay-1">
     <text x="400" y="58" class="mono eyebrow" fill="#B3BFCB">CURRENT SIGNAL</text>
     <line x1="400" y1="73" x2="848" y2="73" stroke="#B3BFCB" stroke-opacity="0.28"/>
-    <circle cx="828" cy="55" r="5" fill="#D5DBE2" class="pulse"/>
+    <circle cx="808" cy="50" r="5" fill="#D5DBE2" class="pulse"/>
+    <circle cx="828" cy="50" r="5" fill="#D5DBE2" class="pulse"/>
+    <circle cx="848" cy="50" r="5" fill="#D5DBE2" class="pulse"/>
     <text x="400" y="110" class="display" font-size="20" font-weight="600" fill="#D5DBE2">Designing with curiosity.</text>
     <text x="400" y="139" class="display" font-size="15" fill="#B3BFCB">Learning the flow between pixels</text>
     <text x="400" y="161" class="display" font-size="15" fill="#B3BFCB">and code, one project at a time.</text>
@@ -90,3 +93,4 @@
     <text x="696" y="231" class="mono" font-size="9" fill="#B3BFCB">FIGMA / CANVA / LIGHTROOM =</text>
   </g>
 </svg>
+         
