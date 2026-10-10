@@ -38,7 +38,7 @@ const totalStars = repositories.reduce((total, repository) => total + repository
 const totalForks = repositories.reduce((total, repository) => total + repository.forkCount, 0);
 const calendar = collection.contributionCalendar;
 const days = calendar.weeks.flatMap((week) => week.contributionDays);
-const levelFor = (day) => ({ NONE: 0, FIRST_QUARTILE: 1, SECOND_QUARTILE: 2, THIRD_QUARTILE: 3, FOURTH_QUARTILE: 4 }[day.contributionLevel] ?? 0);
+const levelFor = (day) => ({ NONE: 0, FIRST_QUARTILE: 1, SECOND_QUARTILE: 2, THIRD_QUARTILE: 3, FOURTH_QUARTILE: 4 }[day?.contributionLevel] ?? 0);
 const escapeXml = (value) => String(value).replace(/[<>&'"]/g, (character) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;', "'": '&apos;', '"': '&quot;' }[character]));
 
 // Keep the original SVG as the visual template; only data tokens are replaced.
@@ -56,6 +56,7 @@ svg = svg.replace(cellPattern, (cell) => {
   const index = cellIndex++;
   if (index >= templateDays.length) return cell;
   const day = templateDays[index];
+  if (!day) return cell;
   const level = levelFor(day);
   const outer = cell.match(/^<g transform="translate\(([0-9.]+) ([0-9.]+)\)">/);
   const side = cell.match(/<rect[^>]+height="([0-9.]+)"[^>]+class="cont-left-/);
